@@ -1,6 +1,7 @@
 [master][~/dev/beer-party-data] ruby download-party.rb
 Scans all time: 2047
 Scans that night: 1966
+Distinct tags (more or less #/drinkers...): 271
 16 taps
 17 beers
 30 ratings

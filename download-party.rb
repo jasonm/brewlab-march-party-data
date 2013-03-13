@@ -59,6 +59,7 @@ scans = docs.select { |d| d['type'] == 'rfid-scan' }
 puts "Scans all time: #{scans.count}"
 scans = scans.select { |d| Time.parse(d['created_at']) > Time.parse("March 9, 2013 19:00:00") }
 puts "Scans that night: #{scans.count}"
+puts "Distinct tags (more or less #/drinkers...): #{scans.map { |s| s['tag_id'] }.uniq.count}"
 
 drink_rows = []
 drinks_csv = CSV.generate do |csv|

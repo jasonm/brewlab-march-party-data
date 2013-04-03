@@ -4,8 +4,6 @@
 # _ extend times to next day
 # _ retap the belgian porter as per ~/dev/tastywheel/TODO.md
 
-`spark` rescue raise("Install https://github.com/holman/spark for sparklines; brew install spark on OSX")
-
 require 'couchrest'
 require 'json'
 require 'time'
@@ -14,7 +12,7 @@ require 'pry'
 
 docs = []
 if ENV['FETCH']
-  db = CouchRest.database("https://jasonmorrison:sofapizza@jasonmorrison.cloudant.com/radiobeer1")
+  db = CouchRest.database("http://localhost:5984/radiobeer1_local")
 
   docs = db.
     all_docs(include_docs: true)['rows'].
@@ -91,10 +89,11 @@ open("drinks.csv", "w") do |f|
   f.puts drinks_csv
 end
 
-rating_scan_headers = %w(reader_id rfid_tag_id timestamp)
-rating_scan_rows = []
-scans.each do |scan_doc|
-end
+puts "Wrote drinks.csv"
+puts
+
+puts "Data summary:"
+puts "-------------"
 
 puts "#{taps.count} taps"
 puts "#{beers.count} beers"
@@ -110,13 +109,17 @@ puts
 puts "="*20
 puts
 
-columns = 60
+puts "Writing sparklines to output1.txt"
+puts "---------------------------------"
+
+`spark` rescue raise("Install https://github.com/holman/spark for sparklines; brew install spark on OSX")
 
 drink_times = drink_rows.map { |d| Time.parse(d[2]) }.sort
 timespan = drink_times.last.to_i - drink_times.first.to_i
 
 puts "drinking time: #{timespan}"
 
+columns = 60
 slice_length = timespan / columns.to_f
 
 open("output1.txt", "w") do |f|

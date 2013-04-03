@@ -1,7 +1,7 @@
 require 'csv'
 require 'ostruct'
 
-rows = CSV.parse(open('drinks.csv').read)
+rows = CSV.parse(open('drinks.csv').read)[1..-1]
 
 drinks = rows.map { |row|
   OpenStruct.new({
@@ -30,8 +30,8 @@ puts drinks.length
 personal_favorites = drinks.map { |drink| [drink.rfid_tag_id, drink.beer_name] }.inject({}) { |hash, pair| hash[pair] ||= 0 ; hash[pair] += 1 ; hash }
 
 # The long tail of personal favorites:
-# require 'pp'
-# pp personal_favorites.sort_by { |pair, count| -count }.select { |pair, count| count > 1 }
+require 'pp'
+pp personal_favorites.sort_by { |pair, count| -count }.select { |pair, count| count > 1 }
 
 # The top few:
 # "The Cat Stepper Smoked Porter", 5

@@ -44,6 +44,23 @@ gg.overall.lines <-
   xlab(sprintf("Pours per %i minutes", minutes))
 ggsave(sprintf("gg.overall.lines.%i.pdf", minutes), plot=gg.overall.lines,height=8, width=16)
 
-#people.in.buckets = count(DF, vars = c("rfid_tag_id", "bucket"))
-#gg.plines <-ggplot(data = people.in.buckets) + geom_line(aes(x = bucket, y = freq)) + facet_wrap(~ rfid_tag_id, ncol = 1) + theme(strip.background = element_blank(), strip.text.x = element_blank(), strip.text.y = element_blank())
-#ggsave("gg.plines.pdf", plot=gg.plines,height=48,width=16)
+bn_table <- table(DF$beer_name)
+bn_levels <- names(bn_table)[order(bn_table)]
+DF$beer_by_pour <- factor(DF$beer_name, levels=bn_levels)
+gg.beers.by.pour <-
+  ggplot(DF, aes(beer_by_pour, fill=beer_by_pour)) +
+  geom_bar() +
+  xlab("Beer") +
+  ylab("Pours")
+ggsave("gg.beers.by.pour.pdf", plot=gg.beers.by.pours, height=8, width=16)
+
+
+# people.in.buckets = count(DF, vars = c("rfid_tag_id", "bucket"))
+# gg.plines <-
+#   ggplot(data = people.in.buckets) +
+#   geom_line(aes(x = bucket, y = freq)) +
+#   facet_wrap(~ rfid_tag_id, ncol = 1) +
+#   theme(strip.background = element_blank(),
+#         strip.text.x = element_blank(),
+#         strip.text.y = element_blank())
+# ggsave("gg.plines.pdf", plot=gg.plines,height=48,width=16)

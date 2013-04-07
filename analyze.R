@@ -1,13 +1,14 @@
-require(ggplot2) || install.packages("ggplot2")
-require(plyr)    || install.packages("plyr")
-require(xts)     || install.packages("xts")
+require(reshape2) || install.packages("reshape2")
+require(ggplot2)  || install.packages("ggplot2")
+require(plyr)     || install.packages("plyr")
+require(xts)      || install.packages("xts")
 
-minutes = 15
+minutes = 60
 
 DF <- data.frame(read.csv("~/dev/brewlab/party-data/drinks.csv"))
 
-# bucket each drink into a window
-DF$bucket = align.time(as.POSIXct(DF$timestamp), n = 60 * minutes)
+# bucket each drink into a window.  window timestamp indicates the beginning of the window
+DF$bucket = align.time(as.POSIXct(DF$timestamp) - (60 * minutes), n = 60 * minutes)
 
 # aggregate average drinking time for a beer
 DF$posixct = sapply(DF$timestamp, as.POSIXct)
@@ -46,21 +47,24 @@ ggsave(sprintf("gg.overall.lines.%i.pdf", minutes), plot=gg.overall.lines,height
 
 bn_table <- table(DF$beer_name)
 bn_levels <- names(bn_table)[order(bn_table)]
-DF$beer_by_pour <- factor(DF$beer_name, levels=bn_levels)
+DF$beer_by_pour <- factor(DF$beer_name, levels=rev(bn_levels))
 gg.beers.by.pour <-
   ggplot(DF, aes(beer_by_pour, fill=beer_by_pour)) +
   geom_bar() +
   xlab("Beer") +
-  ylab("Pours")
-ggsave("gg.beers.by.pour.pdf", plot=gg.beers.by.pours, height=8, width=16)
+  ylab("Pours") +
+  theme(axis.text.x=element_text(angle=90,hjust=1))
+ggsave("gg.beers.by.pour.pdf", plot=gg.beers.by.pour, height=8, width=16)
 
-
-# people.in.buckets = count(DF, vars = c("rfid_tag_id", "bucket"))
-# gg.plines <-
-#   ggplot(data = people.in.buckets) +
-#   geom_line(aes(x = bucket, y = freq)) +
-#   facet_wrap(~ rfid_tag_id, ncol = 1) +
-#   theme(strip.background = element_blank(),
-#         strip.text.x = element_blank(),
-#         strip.text.y = element_blank())
-# ggsave("gg.plines.pdf", plot=gg.plines,height=48,width=16)
+# beer-beer correlation
+# library(ggplot2)
+# library(reshape2)
+# ct <- table(DF$rfid_tag_id, DF$beer_name)
+# 
+# qplot(x=Var1, y=Var2, data=melt(cor(ct)), fill=log(value), geom="tile") +
+#   scale_fill_continuous(low="green",high="red") +
+#   theme(axis.text.x=element_text(angle=90,hjust=0))
+# 
+# qplot(x=Var1, y=Var2, data=melt(cor(ct)), fill=value, geom="tile") +
+#   scale_fill_continuous(low="green",high="red") +
+#   theme(axis.text.x=element_text(angle=90,hjust=0))

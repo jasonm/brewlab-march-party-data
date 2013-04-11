@@ -1,4 +1,4 @@
-Beep!  
+Beep!  Measuring tap pours with RFID
 ====================================
 
 For the last BrewLab party, we put a few fancy electronic touches on serving.
@@ -9,9 +9,11 @@ of your tasting glass and some matte black readers hooked up to the bar taps:
 
 ![](./images/reader.jpg)
 
-With these in place, we tallied up all the beers poured.  But then what?  We
-put aside our beer thieves and hygrometers for a few nights and broke out our
-pocket protectors and statistics software to answer a few questions...
+With these in place, we asked the bartenders to scan the tasting glass at the
+tap before pouring.  After the end was over, we tallied up all the beers
+poured.  But then what?  We put aside our beer thieves and hygrometers for a
+few evenings and broke out our pocket protectors and statistics software to
+answer a few questions...
 
 What did people drink?  How much?
 =================================
@@ -47,8 +49,9 @@ What poured early? Late? Did drinking tastes change? What kicked the fastest?
 
 This chart is a little unusual, but it show how the pours were more diverse
 earlier in the evening compared to later.  That's probably not due to drinking
-tastes, but just because of us starting to finish off kegs around 11 to 12.
-Here are the breakdowns of pours, split out by hour:
+tastes becoming more conservative, but just because of us starting to finish
+off kegs around 11 to 12 o'clock.  Here are the breakdowns of pours, split out
+by hour:
 
 ![](./images/gg.bars.60.small.png)
 

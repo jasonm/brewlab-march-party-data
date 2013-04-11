@@ -33,9 +33,11 @@ require 'pp'
 pp personal_favorites.sort_by { |pair, count| -count }.select { |pair, count| count > 1 }
 
 # Aggregate personal favories:
-# 1. Belgian Trippel
-# 2. Troglodyte ESBrown
-# 3. The Skeptic Red IPA
+# 1. Belgian Trippel - One Belgian afficionado went back 5 times 
+# 2. Troglodyte ESBrown - 4 times and a couple of folks came back 3 times
+# 3. The Skeptic Red IPA - 4 times
+#
+# Andrew's Rye Bock, Love Potion #4, Cyclhops, and the Best One Red Ale were our personal-fave runners-up, each with a few people going back not just for seconds, but thirds.
 
 #Detailed few:
 #  [["0009411932", "Belgian Trippel"], 5],

@@ -1,0 +1,12 @@
+== I don't know enough about correlation to interpret our cor data:
+
+The most correlated pairs of beers were:
+
+Pearson correlation coefficient
+
+ 0.2702013210         Todd Rungren Rye-Saison             The Skeptic Red IPA
+ 0.2764488199 Mellow Yellow American Pale Ale       You Ruined My Life Bitter
+ 0.2775007551               Andrew's Rye Bock              Troglodyte ESBrown
+
+Other interesting graphs:
+_ "Active" users over time, get a sense of how many unique drinkers there were, over time

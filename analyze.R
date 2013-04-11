@@ -3,7 +3,7 @@ require(ggplot2)  || install.packages("ggplot2")
 require(plyr)     || install.packages("plyr")
 require(xts)      || install.packages("xts")
 
-minutes = 60
+minutes = 30
 
 DF <- data.frame(read.csv("~/dev/brewlab/party-data/drinks.csv"))
 
@@ -42,7 +42,8 @@ just.pours.in.buckets = count(DF, vars = c("bucket"))
 gg.overall.lines <-
   ggplot(data = just.pours.in.buckets) +
   geom_line(aes(x = bucket, y = freq)) +
-  xlab(sprintf("Pours per %i minutes", minutes))
+  xlab("") +
+  ylab(sprintf("Pours per %i minutes", minutes))
 ggsave(sprintf("gg.overall.lines.%i.pdf", minutes), plot=gg.overall.lines,height=8, width=16)
 
 bn_table <- table(DF$beer_name)

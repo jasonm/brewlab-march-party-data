@@ -9,7 +9,9 @@ of your tasting glass and some matte black readers hooked up to the bar taps:
 
 ![](./images/reader.jpg)
 
-With these in place, we tallied up all the beers poured.  But then what?
+With these in place, we tallied up all the beers poured.  But then what?  We
+put aside our beer thieves and hygrometers for a few nights and broke out our
+pocket protectors and statistics software to answer a few questions...
 
 What did people drink?  How much?
 =================================

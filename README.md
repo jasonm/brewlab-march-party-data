@@ -54,7 +54,7 @@ Another one of the same?
 
 Did people ever go back for seconds of the same beer?  Thirds?  Fourths?
 
-Why, yes.  Yes, indeed.  The top personal favorite beers were:
+Why, yes, indeed!  The top personal favorite beers were:
 
 1. *Belgian Trippel*: One afficionado went back 5 times.
 2. *Troglodyte Brown ESB*: Someone went back 4 times and a couple of folks came back 3 times.

@@ -10,6 +10,7 @@ What did people drink?  How much?
 =================================
 
 ![](./images/gg.beers.by.pour.small.png)
+
 [Larger figure (PDF) of beers by pour](./pdfs/gg.beers.by.pour.pdf)
 
 Top three beers of the night by popular demand?  Bexley's Porter, Love Potion #4 Oyster Stout, and You Ruined My Life Bitter.
@@ -17,6 +18,7 @@ Top three beers of the night by popular demand?  Bexley's Porter, Love Potion #4
 We collectively drank about 80 gallons of beer.  With just under 1200 pours, that's about 8oz per pour.  People had between 4 and 5 drinks on average:
 
 ![](./images/qplot.drinks.hist.small.png)
+
 [Larger figure (PDF) of drinks per person](./pdfs/qplot.drinks.hist.pdf)
 
 Just how many beers did we pour?  When was the beer flowing?
